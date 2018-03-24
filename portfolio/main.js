@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!close) {
       portfolio.style.left = '150px';
+      label.innerHTML = "close";
     } else {
       portfolio.style.left = '0';
+      label.innerHTML = "open";
     }
   })
   
