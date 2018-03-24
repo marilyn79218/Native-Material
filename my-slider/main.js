@@ -68,5 +68,26 @@ document.addEventListener('DOMContentLoaded', function() {
     startInterval();
   }
 
-  slideModule(1000);
+  slideModule(4000);
+
+  // Test ghost-click
+  var ghostBtn = document.getElementById('ghost-click');
+  ghostBtn.addEventListener('touchstart', () => {
+    ghostBtn.innerHTML = 'touchstart';
+  });
+  ghostBtn.addEventListener('click', () => {
+    ghostBtn.innerHTML = 'click';
+    ghostBtn.style.backgroundColor = 'purple';
+
+    setTimeout(() => {
+      ghostBtn.style.backgroundColor = 'white';
+      ghostBtn.innerHTML = 'Default';
+    }, 1000);
+  });
+
+  ghostBtn.addEventListener('touchend', (e) => {
+    ghostBtn.innerHTML = 'touchend';
+    // 這樣就不會再觸發 click (也就是 ghost click)
+    e.preventDefault();
+  });
 });

@@ -34,16 +34,16 @@
   float: left;
 }
 
-.slide-wraper:nth-child(1) {
+.slide-wraper li:nth-child(1) {
   background-color: red;
 }
-.slide-wraper:nth-child(2) {
+.slide-wraper li:nth-child(2) {
   background-color: green;
 }
-.slide-wraper:nth-child(3) {
+.slide-wraper li:nth-child(3) {
   background-color: blue;
 }
-.slide-wraper:nth-child(4) {
+.slide-wraper li:nth-child(4) {
   background-color: pink;
 }
 
