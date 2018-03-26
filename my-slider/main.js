@@ -90,4 +90,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // 這樣就不會再觸發 click (也就是 ghost click)
     e.preventDefault();
   });
+
+  // Defer loading of CSS
+  var deferLink = document.createElement('link');
+  deferLink.href = 'defer.css';
+  deferLink.rel = 'stylesheet';
+  deferLink.type = 'text/css';
+  var existLink = document.getElementsByTagName('link')[0];
+  existLink.parentNode.insertBefore(deferLink, existLink);
 });
