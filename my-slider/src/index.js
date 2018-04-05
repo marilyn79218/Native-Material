@@ -1,3 +1,5 @@
+import './style.css';
+
 document.addEventListener('DOMContentLoaded', function() {
   var slideModule = function(slideDuration) {
     var viewer = document.getElementsByClassName('viewer')[0];
@@ -92,10 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Defer loading of CSS
-  var deferLink = document.createElement('link');
-  deferLink.href = 'defer.css';
-  deferLink.rel = 'stylesheet';
-  deferLink.type = 'text/css';
-  var existLink = document.getElementsByTagName('link')[0];
-  existLink.parentNode.insertBefore(deferLink, existLink);
+  // var deferLink = document.createElement('link');
+  // deferLink.href = 'defer.css';
+  // deferLink.rel = 'stylesheet';
+  // deferLink.type = 'text/css';
+  // var existLink = document.getElementsByTagName('link')[0];
+  // existLink.parentNode.insertBefore(deferLink, existLink);
 });
