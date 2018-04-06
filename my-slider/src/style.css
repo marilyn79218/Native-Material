@@ -27,27 +27,27 @@
   position: relative;
 
   transition: 2s;
-}
 
-.slide-wraper li {
-  color: white;
-  display: inline-block;
-  height: 100%;
-  /* 這樣所有的 li block 之間，才沒有空隙（因為 html 空白所造成） */
-  float: left;
-}
+  li {
+    color: white;
+    display: inline-block;
+    height: 100%;
+    /* 這樣所有的 li block 之間，才沒有空隙（因為 html 空白所造成） */
+    float: left;
 
-.slide-wraper li:nth-child(1) {
-  background-color: red;
-}
-.slide-wraper li:nth-child(2) {
-  background-color: green;
-}
-.slide-wraper li:nth-child(3) {
-  background-color: blue;
-}
-.slide-wraper li:nth-child(4) {
-  background-color: pink;
+    &:nth-child(1) {
+      background-color: red;
+    }
+    &:nth-child(2) {
+      background-color: green;
+    }
+    &:nth-child(3) {
+      background-color: blue;
+    }
+    &:nth-child(4) {
+      background-color: pink;
+    }
+  }
 }
 
 .btn-groups {
@@ -62,35 +62,35 @@
   top: 50%;
   background-color: transparent;
   border: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:after {
+    display: block;
+    content: "";
+    height: 20px;
+    width: 20px;
+    border-right: 3px solid white;
+    border-bottom: 3px solid white;
+
+    cursor: pointer;
+  }
 }
 
 #prev-btn {
   left: 20px;
+
+  &:after {
+    transform: rotate(135deg);
+  }
 }
 
 #next-btn {
   right: 20px;
-}
 
-#prev-btn:focus, #next-btn:focus {
-  outline: none;
-}
-
-#prev-btn::after, #next-btn::after {
-  display: block;
-  content: "";
-  height: 20px;
-  width: 20px;
-  border-right: 3px solid white;
-  border-bottom: 3px solid white;
-
-  cursor: pointer;
-}
-
-#prev-btn::after {
-  transform: rotate(135deg);
-}
-
-#next-btn::after {
-  transform: rotate(-45deg);
+  &:after {
+    transform: rotate(-45deg);
+  }
 }
