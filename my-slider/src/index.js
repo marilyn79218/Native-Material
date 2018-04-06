@@ -1,5 +1,7 @@
 import './style.css';
 
+console.log('your endpoint is ', process.env.ENDPOINT_ENV);
+
 document.addEventListener('DOMContentLoaded', function() {
   var slideModule = function(slideDuration) {
     var viewer = document.getElementsByClassName('viewer')[0];
