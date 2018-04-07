@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var jumpPage = function(targetPageNumber) {
       slideWraper.style.left = `-${targetPageNumber * pageWidth}px`;
+      makeLightBtnActive(targetPageNumber);
       if (!timer) {
         startInterval();
       }
@@ -67,9 +68,44 @@ document.addEventListener('DOMContentLoaded', function() {
         jumpPage(currentIndex);
       }
     })
+
+    var sliderButtons = document.getElementById('sliderButtons');
+    sliderButtons.classList.add('slider-buttons');
+
+    for(let i = 0; i < pages.length; i++) {
+      let lightBtn = document.createElement('li');
+
+      lightBtn.dataset.slideTo = i;
+      lightBtn.onclick = (e) => {
+        removeTimer();
+        currentIndex = i;
+        jumpPage(currentIndex);
+
+        // Prevent the click handler of its parent, sliderButtons, from triggered
+        e.stopPropagation();
+      };
+
+      sliderButtons.appendChild(lightBtn);
+    }
+
+    var makeLightBtnActive = (_targetPage) => {
+      Array.from(sliderButtons.childNodes).forEach(lightBtn => {
+        let slideTo = Number(lightBtn.dataset.slideTo);
+        let targetPage = Number(_targetPage);
+
+        if (slideTo === targetPage) {
+          lightBtn.style = 'background-color: white;';
+          return;
+        }
+
+        lightBtn.style = '';
+      });
+    }
+
     // init setting
     setPageWidth();
     startInterval();
+    makeLightBtnActive(currentIndex);
   }
 
   slideModule(4000);
